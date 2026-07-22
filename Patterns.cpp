@@ -368,7 +368,7 @@ void pattern18(int n){
 // ABCDE
 void pattern19(int n){
     for (int i{0};i<n;++i){
-        char start {'A'+n-i-1};
+        char start {static_cast<char>('A'+n-i-1)};
         for (int j{0};j<i+1;++j){
             cout<<start;
             ++start;
