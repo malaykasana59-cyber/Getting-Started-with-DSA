@@ -2,9 +2,6 @@
 #include <vector>
 using namespace std;
 
-#include <iostream>
-#include <vector>
-
 // Merge Sort.
 // TC -> O(n log n)
 // SC -> O(n)
