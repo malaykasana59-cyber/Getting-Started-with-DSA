@@ -1,6 +1,5 @@
 #include <cstddef>
 #include<iostream>
-#include<unordered_set>
 #include<set>
 #include<algorithm>
 #include<vector>
@@ -43,7 +42,7 @@ vector<vector<int>> better(vector<int> &vec, int n){
     return final;
 }
 
-vector<vector<int>> optimal(vector<int> &vec, int n){
+vector<vector<int>> optimal(vector<int> vec, int n){
     vector<vector<int>> final;
     sort(vec.begin(), vec.end());
     for (int i{0} ; i<n-2 ; ++i){
