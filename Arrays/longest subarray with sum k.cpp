@@ -7,7 +7,6 @@ int brute1(int arr[], int n, int k){
     int len{};
     for (int start{} ; start<n ; ++start){
         for (int end{start} ; end<n ; ++end){
-            int llen{};
             int sum{};
             for (int h{start} ; h<=end ; ++h){
                 sum += arr[h];
@@ -85,10 +84,10 @@ int optimal(int arr[], int n, int k){
 int main() {
     int arr[]{10, 5, 2, 7, 1, 9};
     int k{15};
-    // int len{brute1(arr, size(arr), k)};
+    int len{brute1(arr, size(arr), k)};
     // int len{brute2(arr, size(arr), k)};
     // int len{better(arr, size(arr), k)};
-    int len{optimal(arr, size(arr), k)};
+    // int len{optimal(arr, size(arr), k)};
     cout << len;
     return 0;
 }
