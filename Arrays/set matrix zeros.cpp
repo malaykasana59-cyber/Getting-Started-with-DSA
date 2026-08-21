@@ -203,7 +203,7 @@ int main(){
 int main(){
     int row=3; // rows
     int column=3; // columns
-    int arr[row*column]{1,1,1,1,0,1,1,1,1};
+    int* arr = new int [row*column]{1,1,1,1,0,1,1,1,1};
     int firstcolumn{arr[0]};
     for (int i{} ; i<row ; ++i){
         for (int j{} ; j<column ; ++j){

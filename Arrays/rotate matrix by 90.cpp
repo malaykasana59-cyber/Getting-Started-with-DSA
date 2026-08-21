@@ -29,7 +29,7 @@ using namespace std;
 
 int main(){
     int m=3, n=3;
-    int arr[m * n]{
+    int* arr= new int [m * n]{
         1, 2, 3,
         4, 5, 6,
         7, 8, 9
@@ -46,5 +46,6 @@ int main(){
         if (i%3==0) cout << '\n';
         cout << arr[i] << ' ';
     }
+    delete[] arr;
     return 0;
 }
