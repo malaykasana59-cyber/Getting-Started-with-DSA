@@ -3,7 +3,7 @@ using namespace std;
 
 int main() {
     int m = 4, n = 4;
-    int arr[m*n]{ 
+    int* arr = new int[m*n]{ 
         1,   2,  3, 4,
         5,   6,  7, 8,
         9,  10, 11, 12,
@@ -32,5 +32,6 @@ int main() {
             ++left;
         }
     }
+    delete[] arr;
     return 0;
 }
