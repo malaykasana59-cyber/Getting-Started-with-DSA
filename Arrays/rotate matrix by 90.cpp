@@ -40,7 +40,14 @@ int main(){
         }
     }
     for (int i{} ; i<m ; ++i){
-        reverse(arr+i*n,arr+i*n+n);
+        // reverse(arr+i*n,arr+i*n+n);
+        int start{i*n};
+        int end{i*n+n-1};
+        while (start<end){
+            swap(arr[start],arr[end]);
+            start++;
+            end--;
+        }
     }
     for (int i{} ; i<m*n ; ++i){
         if (i%3==0) cout << '\n';
