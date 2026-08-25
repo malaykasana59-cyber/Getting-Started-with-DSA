@@ -28,7 +28,7 @@ int* better(int arr[], int n){
     for (int i{} ; i<n ; ++i){
         if (arr[i] > max) max = arr[i];
     }
-    int hash[max+1]{};
+    int* hash = new int [max+1]{};
     for (int i{} ; i<n ; ++i){
         ++hash[arr[i]];
     }
@@ -38,6 +38,7 @@ int* better(int arr[], int n){
             if (size == 2) break;
         }
     }
+    delete[] hash;
     return res;
 }
 

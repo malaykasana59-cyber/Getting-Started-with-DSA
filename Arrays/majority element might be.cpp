@@ -17,7 +17,7 @@ int better(int arr[], int n){
     for (int i{} ; i<n ; ++i){
         if (arr[i]>max_el) max_el=arr[i];
     }
-    int hash[max_el+1]{};
+    int* hash = new int [max_el+1]{};
     for (int i{} ; i<n ; ++i){
         ++hash[arr[i]];
     }
