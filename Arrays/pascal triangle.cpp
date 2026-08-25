@@ -7,8 +7,8 @@ using namespace std;
 
 void printelement(int r, int c){
     int el{1};
-    if (c<r-c){
-        for (int i{1} ; i<=c ; ++i){
+    if (c-1<=r-c){
+        for (int i{1} ; i<c ; ++i){
             el=(el*(r-i))/i;
         }
     } else {
