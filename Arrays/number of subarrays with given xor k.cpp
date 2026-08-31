@@ -22,6 +22,7 @@ int optimal(vector<int> arr, int n, int k){
     prexorMap[prexor]++;
     for (int i{} ; i<n ; ++i){
         prexor ^= arr[i];
+        // if (prexor==k) res++;
         int remxor{prexor^k};
         res += prexorMap[remxor];
         prexorMap[prexor]++;
