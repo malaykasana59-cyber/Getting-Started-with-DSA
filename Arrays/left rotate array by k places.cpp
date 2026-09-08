@@ -5,8 +5,8 @@ using namespace std;
 // Brute force method is to create a temporary array and copy the elements in the required order and then copy back to the original array.
 //This takes O(n) time and O(n) space.
 void brute(int arr[], int n, int k){
+    if (k>=n) k %= n;
     if (k==0) return;
-    if (k>n) k %= n;
     int temp[n];
     for (int i{k} ; i<n ; ++i){
         temp[i-k]=arr[i];
@@ -21,8 +21,8 @@ void brute(int arr[], int n, int k){
 // remaining n-k elements to the left and then copy the k elements from the temporary array to the end of the original array.
 // This takes O(n) time and O(k) space.
 void better(int arr[], int n, int k){
+    if (k>=n) k=k%n;
     if (k==0) return;
-    if (k>n) k=k%n;
     int temp[k];
     for (int i{0} ; i<k ; ++i) temp[i]=arr[i];
     for (int j{k} ; j<n ; ++j) arr[j-k]=arr[j];
@@ -38,7 +38,8 @@ void reverse (int arr[], int start, int end){
     }
 }
 void optimal(int arr[], int n, int k){
-    if (k>n) k %= n;
+    if (k>=n) k %= n;
+    if (k==0) return;
     reverse(arr,0,k-1);
     reverse(arr,k,n);
     reverse(arr,0,n);
