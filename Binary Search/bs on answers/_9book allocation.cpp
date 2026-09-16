@@ -51,7 +51,7 @@ int main(){
     vector books{25, 46, 28, 49, 24};
     int students{4};
     int min_max_pages{brute(books,students)};
-    cout << min_max_pages;
+    cout << min_max_pages<<'\n';
     min_max_pages=optimal(books,students);
     cout << min_max_pages;
     return 0;
