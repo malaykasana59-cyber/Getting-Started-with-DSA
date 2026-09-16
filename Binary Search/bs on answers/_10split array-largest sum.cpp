@@ -40,7 +40,7 @@ int optimal(const vector<int>& arr, int k){
         if (count_no_subarr(arr,mid,k)==true) high=mid-1;
         else low=mid+1;
     }
-    return low
+    return low;
 }
 
 int main(){
