@@ -82,22 +82,39 @@ void self_optimal(vector<int>& arr1, vector<int>& arr2){
 // this works only if arr1 has extra enough capacity than its size
 // o(n1+n2), o(1)
 void merge_no_space_optimal(vector<int>& arr1, vector<int>& arr2){
-    int n1{static_cast<int>(arr1.size())};
-    int n2{static_cast<int>(arr2.size())};
-
+    int n1{static_cast<int>(arr1.size())-1};
+    int n2{static_cast<int>(arr2.size())-1};
+    int k{n1+n2+1};
+    while(n1>=0 && n2>=0){
+        if (arr1[n1]>arr2[n2]) arr1[k--]=arr1[n1--];
+        else arr1[k--]=arr2[n2--];
+    }
+    while(n2>=0) arr1[k--]=arr2[n2--];
     return;
 }
 
 int main(){
     vector<int> nums1{-5, -2, 0, 0, 0, 4, 5};
     vector<int> nums2{-3, 1, 8};
+
     // vector<int> merged_arr{merge(nums1,nums2)};
     // for (auto it : merged_arr){
     //     cout<<it<<' ';
     // }
 
     // merge_no_space_brute(nums1, nums2);
+    // for (auto it : nums1){
+    //     cout << it << ' ';
+    // }
+    // for (auto it : nums2){
+    //     cout << it << ' ';
+    // }
+
     // merge_no_space_optimal(nums1, nums2);
+    // for (auto it : nums1){
+    //     cout << it << ' ';
+    // }
+
     self_optimal(nums1, nums2);
     for (auto it : nums1){
         cout << it << ' ';
