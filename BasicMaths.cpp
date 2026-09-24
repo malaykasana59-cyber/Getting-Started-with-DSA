@@ -53,6 +53,18 @@ bool ifarmstrongfor3digit(int n){
     }
 }
 
+// o()
+bool isPerfect(int n) {
+    int s{};
+    for (int i{1} ; i*i<n ; ++i){
+        if (n%i==0){
+            s+=i;
+            if (n/i != n) s+=n/i;
+        }
+    }
+    return s==n;
+}
+
 void printdivisions(int n){ // TC -> O(N)
     // for (int i{1} ; i<=n ; ++i){
     //     if (n%i==0){
@@ -80,11 +92,6 @@ void ifprime(int n){
     }
 
     int cnt{0};
-    // for (int i{1} ; i<=n ; ++i){
-    //     if (n%i==0){
-    //         ++cnt;
-    //     }
-    // }
 
     for (int i{1} ; i*i<=n ; ++i){
         if (n%i==0){ 
@@ -94,6 +101,28 @@ void ifprime(int n){
     }
     if (cnt == 2) cout<<"It is a prime number.";
     else cout << "It is not a prime number.";
+}
+
+// primes less than n 
+// using sieve of eratosthenes
+// keep marking multiples of that prime number till n, we already considered 2 so didnt compute for even numbers
+int countPrimes(int n) {
+    if (n <= 2) return 0;
+    vector<bool> hash(n,1);
+    hash[0]=hash[1]=0;
+    int cnt{1}; // considering 2
+
+    int i{};
+    for (i=3 ; i*i<n ; i+=2){
+        if (hash[i]){
+            int d=i*2;
+            for (int j=i*i ; j<n ; j+=d){
+                hash[j]=0;
+            }
+        }
+    }
+    for (int i{3} ; i<n ; i+=2) if (hash[i]==1) cnt++;
+    return cnt;
 }
 
 void printGcdHcf(int n1, int n2){
@@ -113,6 +142,34 @@ void printGcdHcf(int n1, int n2){
     cout << "GCD = ";
     if (n1==0) cout<<n2;
     else cout<<n1;
+}
+
+// lcm * hcf = a * b
+void lcm(int a, int b){
+    while (a>0 && b>0){
+        if (a>b) a%=b;
+        else b%=a;
+    }
+    int gcd;
+    if (a==0) gcd=b;
+    else gcd=a;
+
+    cout << "LCM of " << a << " and " << b << "is " <<(a*b)/gcd;
+}
+
+vector<int> divisors(int n) {
+    vector<int> divs;
+    for (int i{1} ; i*i<=n ; ++i){
+        if (n%i==0){
+            auto greater_than_i=upper_bound(divs.begin(),divs.end(),i);
+            divs.insert(greater_than_i,i);
+            if (i!=n/i){
+                greater_than_i=upper_bound(divs.begin(),divs.end(),n/i);
+                divs.insert(greater_than_i,n/i);
+            }
+        }
+    }
+    return divs;
 }
 
 int main(){
