@@ -94,10 +94,10 @@ float optimal(vector<int>& arr1, vector<int>& arr2){
     if (m>n) return optimal(arr2,arr1);
 
     int low {}, high {m};
-    int half{(m+n+1)/2};
+    int lefthalf{(m+n+1)/2};
     while (low<=high) {
         int mid1 {low+(high-low)/2};
-        int mid2 {half-mid1};
+        int mid2 {lefthalf-mid1};
         int l1=(mid1>0) ? arr1[mid1-1] : INT_MIN;
         int r1=(mid1<m) ? arr1[mid1] : INT_MAX;
         int l2=(mid2>0) ? arr2[mid2-1] : INT_MIN;
