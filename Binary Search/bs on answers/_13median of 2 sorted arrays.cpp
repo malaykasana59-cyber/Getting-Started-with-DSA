@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+#include<climits>
 using namespace std;
 
 // 1st method is to merge two arrays with merge sort then find medium of that array
@@ -87,10 +88,36 @@ float better(vector<int>& arr1, vector<int>& arr2){
     else return val1;
 }
 
+float optimal(vector<int>& arr1, vector<int>& arr2){
+    int m{static_cast<int>(arr1.size())};
+    int n{static_cast<int>(arr2.size())};
+    if (m>n) return optimal(arr2,arr1);
+
+    int low {}, high {m};
+    int half{(m+n+1)/2};
+    while (low<=high) {
+        int mid1 {low+(high-low)/2};
+        int mid2 {half-mid1};
+        int l1=(mid1>0) ? arr1[mid1-1] : INT_MIN;
+        int r1=(mid1<m) ? arr1[mid1] : INT_MAX;
+        int l2=(mid2>0) ? arr2[mid2-1] : INT_MIN;
+        int r2=(mid2<n) ? arr2[mid2] : INT_MAX;
+
+        if (l1<=r2 && l2<=r1){
+            if ((m+n)%2==0) return (max(l1,l2)+min(r1,r2))/2.0;
+            else return max(l1,l2);
+        }
+        else if (l1>r2) high=mid1-1;
+        else low=mid1+1;
+    }
+    return 0.0;
+}
+
 int main(){
     vector arr1{2, 4, 6};
     vector arr2{1, 3, 5};
     float median{better(arr1,arr2)};
-    cout << median;
+    cout << median << '\n';
+    cout << optimal(arr1,arr2)<<'\n';
     return 0;
 }
