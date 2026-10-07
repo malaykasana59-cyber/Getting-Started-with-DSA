@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <unordered_map>
-#include <vector>
 using namespace std;
 
 // o(n2)
@@ -50,5 +49,6 @@ int main(){
     else cout << s << " and " << t << " are isomorphic.";
     if (are_isomorphic(s,t)==true) cout << s << " and " << t << " are isomorphic.";
     else cout << s << " and " << t << " are isomorphic.";
+    cout<< '\n';
     return 0;
 }
