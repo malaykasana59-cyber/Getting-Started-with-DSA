@@ -12,7 +12,6 @@ int maximum_nesting_depth(const string& s){
         } else if (ch == ')'){
             --depth;
         }
-        else continue;
     }
     return maxdepth;
 }
